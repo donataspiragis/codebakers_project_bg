@@ -1,0 +1,22 @@
+name: cdp_theme
+type: theme
+description: 'CodeBakers Theme'
+version: '1'
+core: 8.x
+base theme: false
+screenshot: screenshot.png
+regions:
+  header: 'Header'
+  content: 'Content'
+  sidebar: 'Sidebar'
+  footer: 'Footer'
+  page_top: 'Page top'
+  page_bottom: 'Page bottom'
+
+libraries:
+  - cdp_theme/cdp-global
+  - cdp_theme/cdp-sidebar
+
+
+
+
