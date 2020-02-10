@@ -1,0 +1,14 @@
+uuid: b619c012-1566-4542-a05a-80a7d252b4fb
+name: codebakers_project_bg
+mail: donatas.piragis@gmail.com
+slogan: ''
+page:
+  403: ''
+  404: ''
+  front: /user/login
+admin_compact_mode: false
+weight_select_max: 100
+langcode: en
+default_langcode: en
+_core:
+  default_config_hash: yXadRE77Va-G6dxhd2kPYapAvbnSvTF6hO4oXiOEynI
