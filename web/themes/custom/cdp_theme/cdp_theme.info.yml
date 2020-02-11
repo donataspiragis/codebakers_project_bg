@@ -10,9 +10,6 @@ regions:
   content: 'Content'
   sidebar: 'Sidebar'
   footer: 'Footer'
-  page_top: 'Page top'
-  page_bottom: 'Page bottom'
-
 libraries:
   - cdp_theme/cdp-global
   - cdp_theme/cdp-sidebar
