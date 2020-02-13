@@ -1,0 +1,23 @@
+uuid: 014e7ac8-16ae-4fab-9418-67c15c8548bb
+langcode: en
+status: true
+dependencies:
+  module:
+    - cdp_copyright
+  theme:
+    - cdp_theme
+id: copyrightblock
+theme: cdp_theme
+region: footer
+weight: 0
+provider: null
+plugin: cdp_copyright
+settings:
+  id: cdp_copyright
+  label: 'Copyright block'
+  provider: cdp_copyright
+  label_display: '0'
+  company_name: CodeBakers
+  year_start: '2019'
+  year_to: ''
+visibility: {  }

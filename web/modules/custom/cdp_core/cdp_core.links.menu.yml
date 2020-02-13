@@ -1,0 +1,6 @@
+cdp.newpage:
+  title: 'Second Page'
+  description: 'Link to Second page'
+  route_name: cdp.content
+  weight: 10
+  menu_name: main

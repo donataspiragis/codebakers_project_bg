@@ -1,0 +1,25 @@
+uuid: d27b5537-74b5-4d40-a755-d727745b04de
+langcode: en
+status: true
+dependencies:
+  config:
+    - system.menu.footer
+  module:
+    - system
+  theme:
+    - cdp_theme
+id: footer
+theme: cdp_theme
+region: footer
+weight: -2
+provider: null
+plugin: 'system_menu_block:footer'
+settings:
+  id: 'system_menu_block:footer'
+  label: Footer
+  provider: system
+  label_display: '0'
+  level: 1
+  depth: 0
+  expand_all_items: false
+visibility: {  }

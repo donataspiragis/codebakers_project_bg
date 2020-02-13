@@ -1,0 +1,7 @@
+cdp.content:
+  path: '/cdpmodule'
+  defaults:
+    _controller: '\Drupal\cdp_core\Controller\CdpController::content'
+    _title: 'Second test page'
+  requirements:
+    _permission: 'access content'

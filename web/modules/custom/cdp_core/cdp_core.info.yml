@@ -1,0 +1,4 @@
+name: 'Starter Module'
+type: module
+description: 'This is starter.'
+core: 8.x

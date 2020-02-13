@@ -1,0 +1,23 @@
+uuid: 4c8c910f-a960-411d-abd3-bdbaf8ff5d5a
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - cdp_theme
+id: sitebranding
+theme: cdp_theme
+region: header
+weight: 0
+provider: null
+plugin: system_branding_block
+settings:
+  id: system_branding_block
+  label: 'Site branding'
+  provider: system
+  label_display: '0'
+  use_site_logo: true
+  use_site_name: true
+  use_site_slogan: true
+visibility: {  }

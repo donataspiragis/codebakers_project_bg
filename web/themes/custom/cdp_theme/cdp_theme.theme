@@ -1,0 +1,70 @@
+<?php
+
+/**
+ * Implements hook_preprocess().
+ */
+
+function cdp_theme_preprocess(&$variables, $hook) {
+  $variables['attributes']['class'] = ['all-elements-class'];
+  $variables['my_custom_attribute'] = 'my custom value';
+}
+
+/**
+ * Implements hook_preprocess().
+ *
+ * @param $variables
+ */
+function cdp_theme_preprocess_html(&$variables) {
+//  Overrides class in before written hood
+  $variables['attributes']['class'] = ['my-html-test-class'];
+//  Adds class to classes in previous hook written
+  $variables['attributes']['class'][] = 'my-html-test-class';
+}
+
+/**
+ * Implements hook_theme_suggestions_alter().
+ *
+ * @param array $suggestions
+ * @param array $variables
+ * @param $hook
+ */
+function cdp_theme_theme_suggestions_alter(array &$suggestions, array $variables, $hook) {
+  $suggestions[] = $hook . ' __ ' . \Drupal::languageManager()->getCurrentLanguage()->getId();
+}
+
+/**
+ * Implements hook_theme_suggestions_alter().
+ *
+ * @param array $suggestions
+ * @param array $variables
+ */
+function cdp_theme_theme_suggestions_html_alter(array &$suggestions, array $variables) {
+  $suggestions[] = $variables['theme_hook_original'] . ' __user__ ' . \Drupal::currentUser()->getAccountName();
+}
+
+/**
+ * Implements HOOK_preprocess_page().
+ *
+ * @param array $variables
+ */
+function cdp_theme_preprocess_page(&$variables) {
+
+}
+
+/**
+ * Implements HOOK_preprocess_region().
+ *
+ * @param array $variables
+ */
+function cdp_theme_preprocess_region(&$variables) {
+
+}
+
+/**
+ * Implements HOOK_preprocess_block().
+ *
+ * @param array $variables
+ */
+function cdp_theme_preprocess_block(&$variables) {
+
+}

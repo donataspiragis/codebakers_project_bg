@@ -21,3 +21,14 @@ cdp-sidebar:
       css/sidebar.css: {}
   js:
     js/sidebar.js: {}
+cdp-statistics:
+  version: 1.x
+  css:
+    base:
+      css/statistics.css: {}
+    layout:
+      css/statistics.css: {}
+    theme:
+      css/statistics.css: {}
+  js:
+    js/statistics.js: {}
