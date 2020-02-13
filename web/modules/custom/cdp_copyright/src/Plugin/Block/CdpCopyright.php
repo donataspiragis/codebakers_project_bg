@@ -9,13 +9,13 @@ namespace Drupal\cdp_copyright\Plugin\Block;
 
 use Drupal\Core\Block\BlockBase;
 use Drupal\Core\Form\FormStateInterface;
-
+use Drupal\Core\Datetime\DrupalDateTime;
 /**
  *
  * @Block (
  *   id = "cdp_copyright",
  *   admin_label = @Translation("Copyright block"),
- *   category = @Translation("Custom")
+ *   category = @Translation("CBPBG")
  * )
  */
 class CdpCopyright extends BlockBase {
@@ -44,7 +44,7 @@ class CdpCopyright extends BlockBase {
     ];
 
     $form['year_start'] = [
-      '#type' => 'textfield',
+      '#type' => 'number',
       '#title' => $this->t('Year from'),
       '#description' => $this->t('Fill project start date.'),
       '#required' => TRUE,
@@ -52,7 +52,7 @@ class CdpCopyright extends BlockBase {
     ];
 
     $form['year_to'] = [
-      '#type' => 'textfield',
+      '#type' => 'number',
       '#title' => $this->t('Year to date'),
       '#description' => $this->t('If no need leave empty and it will be current year'),
       '#default_value' => $this->configuration['year_to'],
@@ -70,13 +70,20 @@ class CdpCopyright extends BlockBase {
     $this->configuration['year_to'] = $form_state->getValue('year_to');
   }
 
-  /**o
+  /**
    * {@inheritdoc}
    */
   public function build() {
-    $date = new \DateTime();
+    $date = new DrupalDateTime();
+    $date = $date->format('Y');
     if (empty($this->configuration['year_to'])) {
-      $this->configuration['year_to'] = $date->format('Y');
+      $this->configuration['year_to'] = $date;
+    }
+    if ($this->configuration['year_to'] > $date) {
+      $this->configuration['year_to'] = $date;
+    }
+    if ($this->configuration['year_start'] > $date) {
+      $this->configuration['year_start'] = $date;
     }
 
     return [

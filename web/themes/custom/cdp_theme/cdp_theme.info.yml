@@ -14,7 +14,6 @@ regions:
   footer: 'Footer'
 libraries:
   - cdp_theme/cdp-global
-  - cdp_theme/cdp-sidebar
 
 
 
