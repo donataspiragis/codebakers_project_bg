@@ -1,0 +1,9 @@
+<?php
+
+function cdp_register_entity_type_alter(array &$entity_types) {
+  $entity_types['user']->setFormClass('register', 'Drupal\cdp_register\RegisterForm');
+}
+function cdp_register_alter(array &$form) {
+  dump($form);
+}
+

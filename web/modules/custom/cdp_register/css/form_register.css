@@ -1,0 +1,6 @@
+.form-item input {
+  width: 30%;
+}
+.form-item label,input {
+  display: block;
+}

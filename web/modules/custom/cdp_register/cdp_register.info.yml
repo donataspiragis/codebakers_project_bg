@@ -1,0 +1,6 @@
+name: 'cdp_register model'
+description: 'register model'
+package: Custom
+type: module
+version: 1.x
+core: 8.x
