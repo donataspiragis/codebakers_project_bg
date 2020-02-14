@@ -1,0 +1,16 @@
+<?php
+/**
+ * Implements hook_theme().
+ */
+function cdp_copyright_theme() {
+  $theme['cdp_copyright_theme'] = [
+    'variables' => [
+      'company_name' => NULL,
+      'year_start' => NULL,
+      'year_to' => NULL,
+      'site_url' => NULL
+    ],
+    'template' => 'cdpcopyright',
+  ];
+  return $theme;
+}

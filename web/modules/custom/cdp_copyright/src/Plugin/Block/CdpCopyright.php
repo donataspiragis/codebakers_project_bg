@@ -28,13 +28,33 @@ class CdpCopyright extends BlockBase {
       'company_name' => '',
       'year_start' => '',
       'year_to' => '',
+      'site_url' => '',
+      'label_display' => '',
     ];
   }
 
   /**
    * {@inheritdoc}
    */
-  public function blockForm($form, FormStateInterface $form_state) {
+  public function buildConfigurationForm(array $form, FormStateInterface $form_state) {
+    $definition = $this->getPluginDefinition();
+    $form['provider'] = [
+      '#type' => 'value',
+      '#value' => $definition['provider'],
+    ];
+
+    $form['admin_label'] = [
+      '#type' => 'item',
+      '#title' => $this->t('Block description'),
+      '#plain_text' => $definition['admin_label'],
+    ];
+    $form['label'] = [
+      '#type' => 'textfield',
+      '#title' => $this->t('Title'),
+      '#maxlength' => 255,
+      '#default_value' => $this->label(),
+      '#required' => TRUE,
+    ];
 
     $form['company_name'] = [
       '#type' => 'textfield',
@@ -57,6 +77,18 @@ class CdpCopyright extends BlockBase {
       '#description' => $this->t('If no need leave empty and it will be current year'),
       '#default_value' => $this->configuration['year_to'],
     ];
+    $form['site_url'] = [
+      '#type' => 'url',
+      '#title' => $this->t('Insert hyperlink if necessary'),
+      '#description' => $this->t('If you fill link all copyright field will become a link.'),
+      '#default_value' => $this->configuration['site_url'],
+    ];
+    $form['label_display'] = [
+      '#type' => 'hidden',
+      '#title' => $this->t(''),
+      '#default_value' => ($this->configuration['label_display'] === static::BLOCK_LABEL_VISIBLE),
+      '#return_value' => static::BLOCK_LABEL_VISIBLE,
+    ];
 
     return $form;
   }
@@ -68,6 +100,7 @@ class CdpCopyright extends BlockBase {
     $this->configuration['company_name'] = $form_state->getValue('company_name');
     $this->configuration['year_start'] = $form_state->getValue('year_start');
     $this->configuration['year_to'] = $form_state->getValue('year_to');
+    $this->configuration['site_url'] = $form_state->getValue('site_url');
   }
 
   /**
@@ -76,23 +109,29 @@ class CdpCopyright extends BlockBase {
   public function build() {
     $date = new DrupalDateTime();
     $date = $date->format('Y');
-    if (empty($this->configuration['year_to'])) {
+
+    if (empty($this->configuration['year_to']) || $this->configuration['year_to'] > $date || $this->configuration['year_to'] < 0) {
       $this->configuration['year_to'] = $date;
     }
-    if ($this->configuration['year_to'] > $date) {
-      $this->configuration['year_to'] = $date;
-    }
-    if ($this->configuration['year_start'] > $date) {
+    if ($this->configuration['year_start'] > $date || $this->configuration['year_start'] < 0) {
       $this->configuration['year_start'] = $date;
+    }
+    if (empty($this->configuration['site_url'])) {
+      $this->configuration['site_url'] = '';
     }
 
     return [
-      '#type' => 'markup',
-      '#markup' => $this->t('@company - Copyright &copy; @year-@year_to', [
-        '@year' => $this->configuration['year_start'],
-        '@year_to' => $this->configuration['year_to'],
-        '@company' => $this->configuration['company_name'],
-      ]),
+      '#theme' => 'cdp_copyright_theme',
+      '#company_name' => $this->configuration['company_name'],
+      '#year_start' => $this->configuration['year_start'],
+      '#year_to' => $this->configuration['year_to'],
+      '#site_url' => $this->configuration['site_url'],
+      '#label_display' => FALSE,
+      '#attached' => [
+        'library' => [
+          'cdp_copyright/copyblock',
+        ],
+      ],
     ];
 
   }

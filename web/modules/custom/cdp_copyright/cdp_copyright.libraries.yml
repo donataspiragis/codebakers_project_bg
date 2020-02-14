@@ -1,0 +1,6 @@
+copyblock:
+  css:
+    layout:
+      css/cdpcopyright.css: {}
+    theme:
+      css/cdpcopyright.css: {}

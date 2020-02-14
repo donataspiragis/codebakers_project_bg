@@ -1,4 +1,4 @@
-uuid: 014e7ac8-16ae-4fab-9418-67c15c8548bb
+uuid: b6c59bac-c334-4c29-a9b7-9c91be3f195f
 langcode: en
 status: true
 dependencies:
@@ -16,8 +16,9 @@ settings:
   id: cdp_copyright
   label: 'Copyright block'
   provider: cdp_copyright
-  label_display: '0'
-  company_name: CodeBakers
+  label_display: ''
+  company_name: 'Code Bakers'
   year_start: '2019'
   year_to: ''
+  site_url: 'https://codebakers.lt/'
 visibility: {  }
