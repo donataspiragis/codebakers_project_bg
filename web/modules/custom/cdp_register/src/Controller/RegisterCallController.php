@@ -15,7 +15,7 @@ class RegisterCallController {
    */
   public function getForm() {
 
-    return \Drupal::formBuilder()->getForm('Drupal\cdp_register\RegisterForm');
+    return \Drupal::formBuilder()->getForm('Drupal\cdp_register\RegistersForm');
   }
 
 }

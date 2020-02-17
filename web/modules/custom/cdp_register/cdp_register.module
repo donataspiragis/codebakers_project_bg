@@ -1,9 +1,29 @@
 <?php
 
 function cdp_register_entity_type_alter(array &$entity_types) {
-  $entity_types['user']->setFormClass('register', 'Drupal\cdp_register\RegisterForm');
+  $entity_types['user']->setFormClass('register', \Drupal\cdp_register\Form\RegistersForm::class);
 }
-function cdp_register_alter(array &$form) {
-  dump($form);
+function cdp_register_form_user_register_form_alter(array &$form) {
+
+  $form['timezone'] = [];
+  var_dump("my module");
 }
 
+function cdp_register_module_implements_alter(&$implementations, $hook) {
+  if ($hook = 'form_alter' && isset($implementations['cdp_register'])) {
+    $group = $implementations['cdp_register'];
+    unset($implementations['cdp_register']);
+    $implementations['cdp_register'] = $group;
+  }
+}
+///**
+// * Add the time zone field to the user edit and register forms.
+// */
+//function system_user_timezone(&$form, FormStateInterface $form_state) {
+//  $user = \Drupal::currentUser();
+//
+//  $account = $form_state->getFormObject()->getEntity();
+//  $form['timezone'] = [];
+//  $form['timezone']['timezone'] = [];
+//
+//}

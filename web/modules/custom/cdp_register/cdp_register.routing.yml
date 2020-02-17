@@ -1,9 +1,9 @@
 cdp_register.register:
   path: '/registration'
   defaults:
-    _entity_form: 'user.register'
+#    _entity_form: 'user.register'
 #    _controller: '\Drupal\cdp_register\Controller\RegisterCallController::getForm'
-#    _form: '\Drupal\cdp_register\RegisterForm'
+#    _form: '\Drupal\cdp_register\Form\RegistersForm'
     _title: 'Create new account'
   requirements:
     _permission: 'access content'
