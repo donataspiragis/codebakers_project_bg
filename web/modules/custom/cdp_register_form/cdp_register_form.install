@@ -45,6 +45,11 @@ function cdp_register_form_uninstall() {
   delete_roles($role_id);
   $role_id = 'techlead';
   delete_roles($role_id);
+  \Drupal::configFactory()->getEditable('core.entity_form_display.user.user.registration_developers')->delete();
+  \Drupal::configFactory()->getEditable('core.entity_form_display.user.user.registration_techlead')->delete();
+  \Drupal::configFactory()->getEditable('core.entity_form_mode.user.registration_developers')->delete();
+  \Drupal::configFactory()->getEditable('core.entity_form_mode.user.registration_techlead')->delete();
+
 }
 
 /**
