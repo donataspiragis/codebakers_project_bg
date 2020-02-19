@@ -11,3 +11,12 @@ use Drupal\cdp_register_form\Form\CdpTechleadRegisterForm;
  * @see https://www.drupal.org/node/2217931
  */
 
+/**
+ * Implements hook_entity_type_alter().
+ */
+function cdp_register_form_entity_type_alter(array &$entity_types) {
+
+  $entity_types['user']->setFormClass('registration_developers', \Drupal\cdp_register_form\Form\MainRegisterForm::class);
+  $entity_types['user']->setFormClass('registration_techlead', \Drupal\cdp_register_form\Form\MainRegisterForm::class);
+
+}

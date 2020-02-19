@@ -1,15 +1,17 @@
 cdp_register_form.register_developer:
   path: '/registration/developer'
   defaults:
-    _form: '\Drupal\cdp_register_form\Form\CdpDeveloperRegisterForm'
+    _controller: '\Drupal\cdp_register_form\Controller\RegistrationController::registerDeveloperForm'
     _title: 'Create new account for developers'
+    role: 'developer'
   requirements:
     _access_user_register: 'TRUE'
 
 cdp_register_form.register_techlead:
   path: '/registration/techlead'
   defaults:
-    _form: '\Drupal\cdp_register_form\Form\CdpTechleadRegisterForm'
+    _controller: '\Drupal\cdp_register_form\Controller\RegistrationController::registerTechleadForm'
     _title: 'Create new account for techlead'
+    role: 'techlead'
   requirements:
     _access_user_register: 'TRUE'
