@@ -20,7 +20,6 @@ class MainRegisterForm extends RegisterForm {
     $form['account']['mail']['#description'] = '';
     $form['account']['name']['#access'] = FALSE;
     $form['account']['name']['#value'] = 'name' . user_password();
-    $form['submit']['#value'] = 'Register';
     return $form;
   }
 
@@ -34,6 +33,14 @@ class MainRegisterForm extends RegisterForm {
     parent::submitForm($form, $form_state);
   }
 
+  /**
+   * {@inheritdoc}
+   */
+  protected function actions(array $form, FormStateInterface $form_state) {
+    $element = parent::actions($form, $form_state);
+    $element['submit']['#value'] = $this->t('Register account');
+    return $element;
+  }
   /**
    * @param $name
    *
