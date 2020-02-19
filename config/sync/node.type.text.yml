@@ -1,0 +1,11 @@
+uuid: faa58f23-7a5c-48c0-987e-e08c39603de4
+langcode: en
+status: true
+dependencies: {  }
+name: Text
+type: text
+description: ''
+help: ''
+new_revision: true
+preview_mode: 1
+display_submitted: true

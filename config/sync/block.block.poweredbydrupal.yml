@@ -1,0 +1,20 @@
+uuid: 25a565d2-1f07-4810-87c3-9e478c04fb04
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - cdp_theme
+id: poweredbydrupal
+theme: cdp_theme
+region: sidebar
+weight: 0
+provider: null
+plugin: system_powered_by_block
+settings:
+  id: system_powered_by_block
+  label: 'Powered by Drupal'
+  provider: system
+  label_display: '0'
+visibility: {  }

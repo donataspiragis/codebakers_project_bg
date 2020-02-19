@@ -1,0 +1,28 @@
+uuid: af25ffda-a74f-41b1-9a43-3e42f08e3861
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+    - system
+  theme:
+    - cdp_theme
+id: mainpagecontent
+theme: cdp_theme
+region: content
+weight: -2
+provider: null
+plugin: system_main_block
+settings:
+  id: system_main_block
+  label: 'Main page content'
+  provider: system
+  label_display: '0'
+visibility:
+  node_type:
+    id: node_type
+    bundles:
+      text: text
+    negate: false
+    context_mapping:
+      node: '@node.node_route_context:node'

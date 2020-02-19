@@ -9,15 +9,3 @@ cdp-global:
       css/main.css: {}
   js:
     js/main.js: {}
-
-cdp-sidebar:
-  version: 1.x
-  css:
-    base:
-      css/sidebar.css: {}
-    layout:
-      css/sidebar.css: {}
-    theme:
-      css/sidebar.css: {}
-  js:
-    js/sidebar.js: {}
