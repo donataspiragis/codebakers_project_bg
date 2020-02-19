@@ -1,0 +1,9 @@
+<section class="copyright-section">
+  {% if  site_url %}
+  {% trans %}
+      <a href="{{ site_url }}" target="_blank" class="copyright-link">{{ company_name }} - Copyright &copy; {{ year_start }}-{{ year_to }}</a>
+  {% endtrans %}
+  {% else %}
+    <span class="copyright-span">{{ company_name }} - Copyright &copy; {{ year_start }}-{{ year_to }}</span>
+  {% endif %}
+</section>

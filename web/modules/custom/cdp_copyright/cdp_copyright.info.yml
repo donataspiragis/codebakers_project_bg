@@ -1,0 +1,4 @@
+name: 'Copyright Footer'
+type: module
+description: 'You will get a block for Copyright.'
+core: 8.x
