@@ -1,7 +1,0 @@
-form_register:
-  version: 1.0
-  css:
-    base:
-      css/form_register.css: {}
-  js:
-    js/test.js: {}
