@@ -3,7 +3,6 @@ status: true
 dependencies:
   config:
     - core.entity_form_mode.user.registration_techlead
-    - field.field.user.user.field_cool
   module:
     - user
 id: user.user.registration_techlead
@@ -16,14 +15,6 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
-  field_cool:
-    weight: 1
-    settings:
-      size: 60
-      placeholder: ''
-    third_party_settings: {  }
-    type: string_textfield
-    region: content
 hidden:
   contact: true
   field_github: true
