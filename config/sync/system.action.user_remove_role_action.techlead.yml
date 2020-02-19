@@ -1,0 +1,14 @@
+uuid: e744628d-62b3-4af5-9317-441c5e14423e
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.techlead
+  module:
+    - user
+id: user_remove_role_action.techlead
+label: 'Remove the Tech Lead role role from the selected user(s)'
+type: user
+plugin: user_remove_role_action
+configuration:
+  rid: techlead

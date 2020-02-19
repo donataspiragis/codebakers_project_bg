@@ -1,0 +1,24 @@
+uuid: 940565b3-0462-45d6-b7a3-564317a77a3f
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.user.field_experience
+  module:
+    - user
+id: user.user.field_experience
+field_name: field_experience
+entity_type: user
+bundle: user
+label: Experience
+description: 'programming experience in years.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer
