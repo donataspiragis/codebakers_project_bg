@@ -1,0 +1,31 @@
+uuid: fd465174-e5c0-44d1-96e1-927e4f7acd42
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_form_mode.user.registration_developers
+    - field.field.user.user.field_experience
+  module:
+    - user
+id: user.user.registration_developers
+targetEntityType: user
+bundle: user
+mode: registration_developers
+content:
+  account:
+    weight: 0
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_experience:
+    type: number
+    weight: 1
+    region: content
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+hidden:
+  contact: true
+  field_github: true
+  language: true
+  timezone: true

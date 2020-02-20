@@ -2,9 +2,11 @@ module:
   block: 0
   breakpoint: 0
   cdp_copyright: 0
+  cdp_register_form: 0
   dblog: 0
   dynamic_page_cache: 0
   field: 0
+  field_ui: 0
   file: 0
   filter: 0
   node: 0

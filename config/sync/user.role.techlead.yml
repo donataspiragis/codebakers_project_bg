@@ -1,0 +1,9 @@
+uuid: 7523ada9-c1f9-4a09-8a9f-c465e305bfbc
+langcode: en
+status: true
+dependencies: {  }
+id: techlead
+label: 'Tech Lead role'
+weight: 3
+is_admin: null
+permissions: {  }

@@ -1,0 +1,10 @@
+uuid: f46643b1-ce8b-4cd7-a9dd-ebffffd6fbe0
+langcode: en
+status: true
+dependencies:
+  module:
+    - user
+id: user.registration_techlead
+label: 'Registration for techlead'
+targetEntityType: user
+cache: true
