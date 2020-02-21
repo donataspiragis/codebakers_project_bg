@@ -20,6 +20,7 @@ class MainRegisterForm extends RegisterForm {
     $form['account']['mail']['#description'] = '';
     $form['account']['name']['#access'] = FALSE;
     $form['account']['name']['#value'] = 'name' . user_password();
+    $form['#validate'][] = [$this, 'validateMail'];
     return $form;
   }
 
@@ -32,6 +33,16 @@ class MainRegisterForm extends RegisterForm {
 
     parent::submitForm($form, $form_state);
   }
+
+  public function validateMail(array &$form, FormStateInterface $form_state) {
+    $config = \Drupal::config('cdp_register_form.settings');
+    $regex = $config->get('regex');
+    $mail = $form_state->getValue('mail');
+    if ($mail !== '' && !preg_match_all($regex, $mail)) {
+      $form_state->setError($form['account']['mail'], $this->t('Wrong email...'));
+    }
+  }
+
 
   /**
    * {@inheritdoc}
@@ -48,7 +59,8 @@ class MainRegisterForm extends RegisterForm {
    */
   public function makeName($name) {
     $newName = explode('@', $name);
-    return $newName[0] . '_' . explode('.',$newName[1])[0];
+    $afterEta = explode('.',$newName[1]);
+    return $newName[0] . '_' . $afterEta[0] . $afterEta[1];
   }
   public function save(array $form, FormStateInterface $form_state) {
     $storage = $form_state->getStorage();
@@ -59,3 +71,4 @@ class MainRegisterForm extends RegisterForm {
     parent::save($form, $form_state);
   }
 }
+
