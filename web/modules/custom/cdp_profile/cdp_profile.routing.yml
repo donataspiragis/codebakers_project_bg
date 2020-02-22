@@ -1,0 +1,7 @@
+cdp_profile.page:
+  path: '/user/profile'
+  defaults:
+    _controller: '\Drupal\cdp_profile\Controller\ProfilePageController::profileFront'
+    _title: 'Create page for user profile'
+  requirements:
+    _permission: 'access content'
