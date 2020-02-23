@@ -1,0 +1,9 @@
+name: 'Tasker'
+type: module
+description: 'Tasker - for creating tasks to junior developer and evaluating time of task completion.'
+core: 8.x
+package: 'CDP_B'
+dependencies:
+  - link
+  - options
+  - field
