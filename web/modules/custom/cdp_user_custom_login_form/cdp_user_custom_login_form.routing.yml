@@ -1,0 +1,9 @@
+cdp_user_custom_login_form.login:
+  path: '/development/user/login'
+  defaults:
+    _form: '\Drupal\cdp_user_custom_login_form\Form\CdpUserCustomLoginForm'
+    _title: 'CDP User custom login'
+  requirements:
+    _user_is_logged_in: 'FALSE'
+  options:
+    _maintenance_access: TRUE

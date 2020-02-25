@@ -1,0 +1,8 @@
+name: CDP User login form CUSTOM
+type: module
+description: This module overrides default /user/login route and provides custom for login action
+package: CDP_BG
+core: 8.x
+core_version_requirement: ^8 || ^9
+dependencies:
+  - user
