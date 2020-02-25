@@ -1,8 +1,33 @@
 <?php
-
+use Drupal\cdp_profile\Form\ChangeDetailsForm;
+use Drupal\cdp_profile\Form\ChangePasswordForm;
 /**
  * @file
  * Contains custom_events.module.
  */
 
+/**
+ * @param array $suggestions
+ *   Suggestion array.
+ * @param array $variables
+ *   Variables array.
+ * @param string $hook
+ *   Hook name.
+ */
+function cdp_profile_theme_suggestions_alter(array &$suggestions, array $variables, $hook) {
+  if (\Drupal::currentUser()
+    ->isAuthenticated() && \Drupal::routeMatch()->getRouteName() === 'cdp_profile.page') {
+    $suggestions[] = $hook . '__profile';
+  }
+}
 
+/**
+ * Implements hook_entity_type_alter().
+ */
+function cdp_profile_entity_type_alter(array &$entity_types) {
+
+  $entity_types['user']->setFormClass('details_change', ChangeDetailsForm::class);
+  $entity_types['user']->setFormClass('pass_change', ChangePasswordForm::class);
+
+
+}
