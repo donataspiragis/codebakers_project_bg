@@ -1,8 +1,11 @@
 module:
+  admin_toolbar: 0
+  admin_toolbar_tools: 0
   block: 0
   breakpoint: 0
   cdp_copyright: 0
   cdp_register_form: 0
+  cdp_user_login_form_alter: 0
   dblog: 0
   dynamic_page_cache: 0
   field: 0
@@ -12,6 +15,8 @@ module:
   node: 0
   page_cache: 0
   path_alias: 0
+  realistic_dummy_content: 0
+  realistic_dummy_content_api: 0
   system: 0
   text: 0
   toolbar: 0
