@@ -170,12 +170,9 @@ class Task extends ContentEntityBase implements TaskInterface {
    * {@inheritdoc}
    */
   public function getLeadName() {
-
     $lead = $this->get('task_techlead')->getValue();
     $lead = $lead[0]['target_id'];
-//    $lead = User::load($lead)->getRoles();
-//    dump($lead);
-//    die();
+    $lead = User::load($lead)->getUsername();
     return $lead;
   }
 
@@ -284,16 +281,15 @@ class Task extends ContentEntityBase implements TaskInterface {
       ->setDescription(t('Task description.'))
       ->setSettings([
         'default_value' => '',
-        'text_processing' => 0,
       ])
       ->setDefaultValue('')
       ->setDisplayOptions('view', [
         'label' => 'above',
-        'type' => 'text_textarea',
+        'type' => 'string',
         'weight' => -5,
       ])
       ->setDisplayOptions('form', [
-        'type' => 'text_textarea',
+        'type' => 'format_text',
         'settings' => [
           'rows' => 4,
         ],
